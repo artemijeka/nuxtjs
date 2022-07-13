@@ -1,2 +1,2 @@
 Nuxt.js Fundamentals
-    https://vueschool.io/courses/nuxtjs-fundamentals
+    https://vueschool.io/lessons/nuxtjs-page-components
