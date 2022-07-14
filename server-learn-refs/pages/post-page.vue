@@ -16,8 +16,8 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: 'PostPage',
+<style>
+h1 {
+  color: red;
 }
-</script>
+</style>

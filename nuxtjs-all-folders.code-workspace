@@ -1,0 +1,19 @@
+{
+	"folders": [
+		{
+			"name": "static-learn-refs",
+			"path": "static-learn-refs"
+		},
+		{
+			"name": "server-learn-refs",
+			"path": "server-learn-refs"
+		},
+		{
+			"name": "nuxtjs",
+			"path": "."
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "static-learn-refs"
+	}
+}
