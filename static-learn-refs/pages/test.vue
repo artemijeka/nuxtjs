@@ -18,6 +18,6 @@
 
 <script>
 export default {
-  name: 'PostPage',
+  name: 'TestPage',
 }
 </script>
