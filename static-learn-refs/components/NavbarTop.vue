@@ -3,7 +3,7 @@
     <nav>
       <nuxt-link to="/">Main</nuxt-link>
       <!-- Или: -->
-      <nuxt-link :to="{name: 'index'}">Main</nuxt-link>
+      <!-- <nuxt-link :to="{name: 'index'}">Main</nuxt-link> -->
 
       <nuxt-link to="/test">Test</nuxt-link>
       <nuxt-link to="/posts/one">Post one</nuxt-link>
