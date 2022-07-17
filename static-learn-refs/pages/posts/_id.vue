@@ -23,6 +23,17 @@ export default {
       // ],
     }
   },
+  head() {
+    return {
+      title: this.post.title,
+      meta: [
+        { name: 'twitter:title', content: this.post.title },
+        { name: 'twitter:description', content: this.post.text },
+        { name: 'twitter:image', content: this.post.image },
+        { name: 'twitter:card', content: 'summary_large_image' },
+      ],
+    }
+  },
   computed: {
     post() {
       return this.$store.state.posts.all.find((post) => post.id === this.id)
@@ -38,18 +49,24 @@ export default {
 
 <template>
   <div class="post-page">
-    <main class="post-page__main">
+    <main class="post-page__post">
       <h1>{{ post.title }}</h1>
       <p>
         {{ post.text }}
       </p>
+      <img
+        class="post-page__post-img"
+        :src="post.image"
+        :alt="post.title"
+        :title="post.title"
+      />
     </main>
     <aside class="post-page__aside">
       <ul>
         <li
-          class="post-page__aside-item"
           v-for="related in relatedPosts"
           :key="related.id"
+          class="post-page__aside-item"
         >
           <!-- Для переключения без перезагрузки -->
           <nuxt-link :to="`/posts/${related.id}`">{{
@@ -71,8 +88,11 @@ export default {
 <style lang="scss">
 .post-page {
   display: flex;
-  &__main {
+  &__post {
     width: 70%;
+    &-img {
+      width: 50%;
+    }
   }
   &__aside {
     width: 30%;
