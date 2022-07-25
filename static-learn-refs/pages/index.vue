@@ -2,14 +2,14 @@
   <div>
     <Tutorial />
     <nav>
-      <h2>Posts</h2>
+      <h2>Articles</h2>
       <nuxt-link
-        v-for="post in posts"
-        :key="post.id"
-        :to="{ name: 'posts-id', params: { id: post.id } }"
+        v-for="article in articles"
+        :key="article.id"
+        :to="{ name: 'articles-id', params: { id: article.id } }"
         class="main-page-nav__item"
       >
-        {{ post.title }}
+        {{ article.title }}
       </nuxt-link>
     </nav>
   </div>
@@ -18,22 +18,40 @@
 <script>
 export default {
   name: 'IndexPage',
+  data() {
+    return {
+      articles: [],
+    }
+  },
   head() {
     return {
       title: 'Nuxt + Vue + Vuex | Home page!',
       meta: [
         { name: 'twitter:title', content: 'Nuxt + Vue + Vuex | Home page!' },
-        { name: 'twitter:description', content: 'Home page! Nuxt + Vue + Vuex = Power&Speed' },
-        { name: 'twitter:image', content: 'https://i.ytimg.com/vi/yHrSHiBSP4U/maxresdefault.jpg' },
+        {
+          name: 'twitter:description',
+          content: 'Home page! Nuxt + Vue + Vuex = Power&Speed',
+        },
+        {
+          name: 'twitter:image',
+          content: 'https://i.ytimg.com/vi/yHrSHiBSP4U/maxresdefault.jpg',
+        },
         { name: 'twitter:card', content: 'summary_large_image' },
       ],
     }
   },
   computed: {
-    posts() {
-      return this.$store.state.posts.all
-    },
-  }
+    // posts() {
+    //   return this.$store.state.posts.all
+    // },
+  },
+  mounted() {
+    fetch('https://jsonplaceholder.typicode.com/posts').then((response) => {
+      response.json().then((articles) => {
+        this.articles = articles
+      })
+    })
+  },
 }
 </script>
 

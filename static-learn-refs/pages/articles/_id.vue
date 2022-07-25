@@ -3,6 +3,7 @@ export default {
   data() {
     return {
       id: this.$route.params.id,
+      article: {},
       /* move to the store posts: */
       // posts: [
       // {
@@ -25,24 +26,31 @@ export default {
   },
   head() {
     return {
-      title: this.post.title,
+      title: this.article.title,
       meta: [
-        { name: 'twitter:title', content: this.post.title },
-        { name: 'twitter:description', content: this.post.text },
-        { name: 'twitter:image', content: this.post.image },
+        { name: 'twitter:title', content: this.article.title },
+        { name: 'twitter:description', content: this.article.text },
+        { name: 'twitter:image', content: this.article.image },
         { name: 'twitter:card', content: 'summary_large_image' },
       ],
     }
   },
   computed: {
     post() {
-      return this.$store.state.posts.all.find((post) => post.id === this.id)
-      // return this.posts.find((post) => post.id === this.id)
+      return this.$store.state.articles.all.find((article) => article.id === this.id)
     },
-    relatedPosts() {
-      return this.$store.state.posts.all.filter((post) => post.id !== this.id)
-      // return this.posts.filter((post) => post.id !== this.id)
+    relatedArtices() {
+      return this.$store.state.articles.all.filter((article) => article.id !== this.id)
     },
+  },
+  mounted() {
+    fetch('https://jsonplaceholder.typicode.com/posts/' + this.id).then(
+      (response) => {
+        response.json().then((article) => {
+          this.article = article
+        })
+      }
+    )
   },
 }
 </script>
@@ -50,21 +58,21 @@ export default {
 <template>
   <div class="post-page">
     <main class="post-page__post">
-      <h1>{{ post.title }}</h1>
+      <h1>{{ article.title }}</h1>
       <p>
-        {{ post.body }}
+        {{ article.body }}
       </p>
       <img
         class="post-page__post-img"
-        :src="post.image"
-        :alt="post.title"
-        :title="post.title"
+        :src="article.image"
+        :alt="article.title"
+        :title="article.title"
       />
     </main>
     <aside class="post-page__aside">
       <ul>
         <li
-          v-for="related in relatedPosts"
+          v-for="related in relatedArticles"
           :key="related.id"
           class="post-page__aside-item"
         >
