@@ -1,4 +1,6 @@
 <script>
+import axios from 'axios';
+
 export default {
   data() {
     return {
@@ -44,13 +46,16 @@ export default {
     },
   },
   mounted() {
-    fetch('https://jsonplaceholder.typicode.com/posts/' + this.id).then(
-      (response) => {
-        response.json().then((article) => {
-          this.article = article
-        })
-      }
-    )
+    axios.get('https://jsonplaceholder.typicode.com/posts/' + this.id).then(response=>{
+     this.article = response.data
+    })
+    // fetch('https://jsonplaceholder.typicode.com/posts/' + this.id).then(
+    //   (response) => {
+    //     response.json().then((article) => {
+    //       this.article = article
+    //     })
+    //   }
+    // )
   },
 }
 </script>

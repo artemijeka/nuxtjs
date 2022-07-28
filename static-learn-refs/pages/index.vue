@@ -16,6 +16,7 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
   name: 'IndexPage',
   data() {
@@ -46,11 +47,14 @@ export default {
     // },
   },
   mounted() {
-    fetch('https://jsonplaceholder.typicode.com/posts').then((response) => {
-      response.json().then((articles) => {
-        this.articles = articles
-      })
+    axios.get('https://jsonplaceholder.typicode.com/posts').then((response) => {
+      this.articles = response.data
     })
+    // fetch('https://jsonplaceholder.typicode.com/posts').then((response) => {
+    //   response.json().then((articles) => {
+    //     this.articles = articles
+    //   })
+    // })
   },
 }
 </script>
