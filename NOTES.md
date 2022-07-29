@@ -1,3 +1,15 @@
+Docs
+    https://v3.nuxtjs.org
+    https://nuxtjs.org
+
+Examples    
+    https://nuxtjs.org/examples/routing/dynamic-pages
+
+Tutorials
+    https://nuxtjs.org/tutorials/
+
+
+
 V Nuxt.js Fundamentals
     V https://vueschool.io/lessons/nuxtjs-seo-and-meta-tags
         делал в static-learn-refs
@@ -10,9 +22,3 @@ V Nuxt.js Fundamentals
         !далее платно
             делаю в static-learn-refs 
                 только не posts а articles
-
-Examples    
-    https://nuxtjs.org/examples/routing/hello-world
-
-Tutorials
-    https://nuxtjs.org/tutorials/
