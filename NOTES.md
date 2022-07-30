@@ -1,6 +1,10 @@
-Docs
-    https://v3.nuxtjs.org
+﻿Docs
+    ...https://v3.nuxtjs.org
+        ...https://v3.nuxtjs.org/guide/concepts/auto-imports
+
     https://nuxtjs.org
+
+
 
 Examples    
     https://nuxtjs.org/examples/routing/dynamic-pages
