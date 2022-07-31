@@ -1,6 +1,6 @@
 ﻿Docs
     ...https://v3.nuxtjs.org
-        ...https://v3.nuxtjs.org/guide/concepts/auto-imports
+        ...https://v3.nuxtjs.org/guide/concepts/typescript
 
     https://nuxtjs.org
 
